@@ -14,7 +14,10 @@ public class Main {
 		
 		System.out.println("Insert a present (or \"close\" ): ");
 		String newPresent = sc.nextLine();
-		
+
+		System.out.println("Who is this present for? ");
+		String receiver = sc.nextLine();
+
 		while(!newPresent.toLowerCase().equals("close")) {
 			
 			wishList.add(newPresent);
@@ -22,9 +25,11 @@ public class Main {
 			System.out.println("List length: " + wishList.size());
 			System.out.println("Insert another present (or \"close\" ): ");
 			newPresent = sc.nextLine();
+
+			System.out.println("Who is this present for? ");
+			receiver = sc.nextLine();
 			
 		}
-		
 		System.out.println(wishList);
 		
 	}
