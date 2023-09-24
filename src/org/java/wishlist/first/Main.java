@@ -9,27 +9,28 @@ public class Main {
 
 		Scanner sc = new Scanner(System.in);
 		
-		ArrayList<String> wishList = new ArrayList<>();
+		ArrayList<Present> wishList = new ArrayList<>();
 		
-		
-		System.out.println("Insert a present (or \"close\" ): ");
-		String newPresent = sc.nextLine();
-
-		System.out.println("Who is this present for? ");
-		String receiver = sc.nextLine();
+		String newPresent = "";
 
 		while(!newPresent.toLowerCase().equals("close")) {
 			
-			wishList.add(newPresent);
 			
 			System.out.println("List length: " + wishList.size());
-			System.out.println("Insert another present (or \"close\" ): ");
+			System.out.println("Insert a present (or \"close\" ): ");
 			newPresent = sc.nextLine();
-
-			System.out.println("Who is this present for? ");
-			receiver = sc.nextLine();
+			
+			if(!newPresent.toLowerCase().equals("close")){
+				
+				System.out.println("Who is this present for? ");
+				String receiver = sc.nextLine();
+				
+				Present present = new Present(newPresent, receiver);
+				wishList.add(present);
+			}
 			
 		}
+		
 		System.out.println(wishList);
 		
 	}
