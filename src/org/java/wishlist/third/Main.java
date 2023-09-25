@@ -12,5 +12,27 @@ public class Main {
 		}while(lp.hasAncoraElementi());
 
 		
+		
+		System.out.println("---------------------------------------------");
+		Looper lp2 = new Looper();
+		lp2.addEl(0);
+		lp2.addEl(0);
+		lp2.addEl(0);
+		lp2.addEl(0);
+		lp2.addEl(0);
+		lp2.addEl(0);
+		lp2.addEl(0);
+		lp2.addEl(0);
+		lp2.addEl(0);
+		lp2.addEl(0);
+		lp2.addEl(0);
+		lp2.addEl(0);
+		lp2.addEl(0);
+		lp2.addEl(0);
+		
+		do {
+			System.out.println(lp2.getElementoSuccessivo());
+		}while(lp2.hasAncoraElementi());
+
 	}
 }

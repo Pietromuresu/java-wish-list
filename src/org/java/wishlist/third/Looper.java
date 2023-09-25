@@ -5,9 +5,14 @@ public class Looper {
 	private int[] myArray;
 	private int index; 
 	
+	
 	public Looper(int[] myArray) {
 		setMyArray(myArray);
 		setIndex(this.startIndex);
+	}
+	
+	public Looper() {
+		setMyArrayBonus();
 	}
 
 	public int[] getMyArray() {
@@ -19,6 +24,36 @@ public class Looper {
 		this.myArray = new int[myArray.length];
 		
 		this.myArray = myArray;
+	}
+
+	public void setMyArrayBonus() {
+		
+		this.myArray = new int[10];
+		
+	}
+	
+	public void addEl(int el) {
+		
+		String err = null;
+		try {
+			
+			myArray[myArray.length] = el;
+		}catch(Exception e) {
+			err = e.getMessage();
+			
+ 		}
+		
+		if(err != null) {
+			
+			int[] newArray = new int[myArray.length + 10];
+			newArray = this.myArray;
+			
+			this.myArray = new int[newArray.length];
+			this.myArray = newArray;
+			
+			addEl(el);
+		}
+		
 	}
 
 	public int getIndex() {
