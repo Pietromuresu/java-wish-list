@@ -4,7 +4,7 @@ public class Looper {
 	final int startIndex = 0;
 	private int[] myArray;
 	private int index; 
-	
+	private int counter = 0;
 	
 	public Looper(int[] myArray) {
 		setMyArray(myArray);
@@ -33,26 +33,20 @@ public class Looper {
 	}
 	
 	public void addEl(int el) {
-		
-		String err = null;
-		try {
-			
-			myArray[myArray.length] = el;
-		}catch(Exception e) {
-			err = e.getMessage();
-			
- 		}
-		
-		if(err != null) {
-			
+
+		myArray[counter++] = el;
+
+		if(counter == myArray.length){
 			int[] newArray = new int[myArray.length + 10];
-			newArray = this.myArray;
+			for(int i = 0; i < myArray.length; i++) {
+				newArray[i] = myArray[i];
+			}
 			
-			this.myArray = new int[newArray.length];
 			this.myArray = newArray;
+		
 			
-			addEl(el);
 		}
+		
 		
 	}
 
@@ -76,18 +70,11 @@ public class Looper {
 		return element;
 		
 		
-		
 	}
 	
 	
 	public boolean hasAncoraElementi() {
-		try {
-			int nextEl = myArray[index];
-			return true;
-			
-		}catch(Exception e) {
-			return false;
-		}
+		return index < counter;
 	}
-	
+		
 }
